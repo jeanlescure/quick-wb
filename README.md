@@ -16,7 +16,7 @@ Quick WEBrick depends on the 'gli', before running it execute the following from
 
 Make the quick-wb script executable:
 
-    $ chmod 666 bin/quick-wb
+    $ chmod 744 bin/quick-wb
 
 Run the server:
 
