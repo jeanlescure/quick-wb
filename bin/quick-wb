@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/safe-require'
+safe_require 'gli'
+require_relative '../lib/quick-wb'
+
+include GLI::App
+
+program_desc "Run a WEBrick server locally and serve any folder on any port \n\t\tof your choice, quickly and hassle-free."
+
+hide_commands_without_desc(true)
+
+version QuickWb::VERSION
+
+#desc 'Describe some switch here'
+#switch [:s,:switch]
+
+desc 'This is the folder WEBrick will be serving as root.'
+default_value Dir::pwd
+arg_name '"path/to/dir"'
+flag [:d,:directory]
+
+desc 'This is the port WEBrick will be listening at for HTTP requests.'
+default_value 8080
+arg_name '[e.g. 1234]'
+flag [:p,:port]
+
+pre do |global,command,options,args|
+  $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory])
+  true
+end
+
+post do |global,command,options,args|
+  puts "Thanks for using Quick WEBrick. Have a nice day!"
+end
+
+on_error do |exception|
+  # Error logic here
+  # return false to skip default error handling
+  true
+end
+
+command :start do |c|
+  c.action do |global,options,args|
+    puts "Starting server: http://#{Socket.gethostname}:8080"
+    puts "Serving folder: #{global[:directory]}"
+    trap("INT"){ $server.shutdown }
+    $server.start
+  end
+end
+
+if not defined?(Ocra)
+  default_command(:start)
+end
+
+exit run(ARGV)
