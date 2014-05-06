@@ -8,7 +8,7 @@ Run a WEBrick server locally and serve any folder on any port of your choice, qu
 
 Quick WEBrick depends on the 'gli', before running it execute the following from your cli:
 
-    `gem install gli`
+    gem install gli
     
 ## Running Quick WEBrick
 
@@ -16,12 +16,12 @@ Quick WEBrick depends on the 'gli', before running it execute the following from
 
 Make the quick-wb script executable:
 
-    `$ chmod 666 bin/quick-wb`
+    $ chmod 666 bin/quick-wb
 
 Run the server:
 
-    `$ cd bin`
-    `$ ./quick-wb`
+    $ cd bin
+    $ ./quick-wb
     
 ### On windows
 
