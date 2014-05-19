@@ -59,7 +59,7 @@ command :php do |c|
   
   c.action do |global,options,args|
     puts "Starting server: http://#{Socket.gethostname}:8080"
-    $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory],:PHPPath => options[:phpdir])
+    $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory],:PHPPath => options[:phpdir],:DirectoryIndex=>["index.php", "index.html", "index.htm", "index.cgi", "index.rhtml"])
     puts "Serving folder: #{global[:directory]}"
     puts "PHP Handling Activated"
     puts "Handling files using php installation at: #{options[:phpdir]}"
