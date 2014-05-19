@@ -12,7 +12,7 @@ Quick WEBrick depends on the 'gli', before running it execute the following from
     
 ## Running Quick WEBrick
 
-### On Unix Based Operating Systems
+### On Unix-based Operating Systems
 #### (e.g. Ubuntu, MacOS X)
 
 Make the quick-wb script executable:
@@ -36,7 +36,7 @@ In order to start `quick-wb` on any folder quickly and easily simply add the `pa
 
 This works on most mainstream operating systems.
 
-## ![PHP](http://www.php.net/images/logo.php) Now Supported!
+## ![PHP](http://www.php.net/images/logo.php) now supported!
 
 Run the server with php command:
 
