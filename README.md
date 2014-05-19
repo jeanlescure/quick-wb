@@ -32,7 +32,7 @@ This executable file is compiled using Ocra from the latest stable version.
 
 ## Easy Execution In Any Folder
 
-In order to start `quick-wb` on any folder quickly and easily simply add the `path/to/quick-rb/dir to your` **PATH** environment variable.
+In order to start `quick-wb` on any folder quickly and easily simply add the `path/to/quick-rb/dir` to your **PATH** environment variable.
 
 This works on most mainstream operating systems.
 
