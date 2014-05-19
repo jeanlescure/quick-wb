@@ -13,7 +13,7 @@ Quick WEBrick depends on the 'gli', before running it execute the following from
 ## Running Quick WEBrick
 
 ### On Unix Based Operating Systems
-## (e.g. Ubuntu, MacOS X)
+#### (e.g. Ubuntu, MacOS X)
 
 Make the quick-wb script executable:
 
