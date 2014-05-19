@@ -26,7 +26,6 @@ arg_name '[e.g. 1234]'
 flag [:p,:port]
 
 pre do |global,command,options,args|
-  $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory])
   true
 end
 
@@ -43,7 +42,31 @@ end
 command :start do |c|
   c.action do |global,options,args|
     puts "Starting server: http://#{Socket.gethostname}:8080"
+    $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory])
     puts "Serving folder: #{global[:directory]}"
+    trap("INT"){ $server.shutdown }
+    $server.start
+  end
+end
+
+desc 'Run a WEBrick server locally and serve files using a local installation of php.'
+command :php do |c|
+  
+  c.desc 'This is the folder where php is installed in your system.'
+  c.default_value 'c:\php'
+  c.arg_name '"path/to/php/install/dir"'
+  c.flag [:phpdir]
+  
+  c.action do |global,options,args|
+    puts "Starting server: http://#{Socket.gethostname}:8080"
+    $server = WEBrick::HTTPServer.new(:Port=>global[:port],:DocumentRoot=>global[:directory],:PHPPath => options[:phpdir])
+    puts "Serving folder: #{global[:directory]}"
+    puts "PHP Handling Activated"
+    puts "Handling files using php installation at: #{options[:phpdir]}"
+    
+    $server.mount("/", WEBrick::HTTPServlet::FileHandler, global[:directory],
+      {:FancyIndexing => true, :HandlerTable => {"php" => WEBrick::HTTPServlet::PHPHandler}})
+    
     trap("INT"){ $server.shutdown }
     $server.start
   end
