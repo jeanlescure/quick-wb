@@ -37,6 +37,7 @@ module WEBrick
         meta["SCRIPT_FILENAME"] = @php_fullpath_script
         meta["PATH"] = @config[:PHPPath]
         meta["REDIRECT_STATUS"] = "200" # php-cgi/apache specific value
+        meta["REQUEST_URI"].gsub!(/(http|https):\/\/[^\/]*?#{meta["SERVER_NAME"]}(:#{meta["SERVER_PORT"]}){0,1}\//mi,'/')
         if /mswin|bccwin|mingw/ =~ RUBY_PLATFORM
           meta["SystemRoot"] = ENV["SystemRoot"]
         end
