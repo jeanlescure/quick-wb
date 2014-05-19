@@ -62,4 +62,6 @@ On Windows: `quick-wb help`
 
 * * *
 
+##### Credits and contributions:
+
 I forked the code for the PHP Handler from [Quest Master's WEBrickPHPHandler github project](https://github.com/questmaster/WEBrickPHPHandler).
