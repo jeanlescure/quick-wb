@@ -46,7 +46,7 @@ Override php installation directory:
 
     quick-wb php --phpdir="c:\dev\php-5.4"
 
-### Note: This feature has only been tested on windows platforms, so take into mind the following considerations:
+### Note: This feature has only been tested on windows platforms, so take into consideration the following:
 
 * The default directory for php is currently set as `c:\php`. In future patches I'll dynamically change this based on common OS definitions. (e.g. `/private/etc` for MacOS X, and `/usr/share/php5` for Ubuntu)
 
@@ -59,3 +59,7 @@ To view quick-wb's help info about commands and arguments, run:
 On Linux: `$ ./quick-wb help`
 
 On Windows: `quick-wb help`
+
+* * *
+
+I forked the code for the PHP Handler from [Quest Master's WEBrickPHPHandler github project](https://github.com/questmaster/WEBrickPHPHandler).
