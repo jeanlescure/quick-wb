@@ -4,6 +4,14 @@
 
 Run a WEBrick server locally and serve any folder on any port of your choice, quickly and hassle-free.
 
+## Version 1.0.1 is here!
+
+New on this version:
+* **New** Interactive multiple server instance management console! 
+* Better PHP management
+* Better error handling
+* Server output logging
+
 ## Dependencies
 
 Quick WEBrick depends on the 'gli', before running it execute the following from your cli:
@@ -12,7 +20,7 @@ Quick WEBrick depends on the 'gli', before running it execute the following from
     
 ## Running Quick WEBrick
 
-### On Unix-based Operating Systems
+### ![](https://github.com/jeanlescure/quick-wb/raw/master/misc/mac.png) ![](https://github.com/jeanlescure/quick-wb/raw/master/misc/tux.png) On Unix-based Operating Systems
 #### (e.g. Ubuntu, MacOS X)
 
 Make the quick-wb script executable:
@@ -24,7 +32,7 @@ Run the server:
     $ cd bin
     $ ./quick-wb
     
-### On Windows
+### ![](https://github.com/jeanlescure/quick-wb/raw/master/misc/win.png) On Windows
 
 Just run the provided exe from the win-dist folder.
 
@@ -36,15 +44,49 @@ In order to start `quick-wb` on any folder quickly and easily simply add the `pa
 
 This works on most mainstream operating systems.
 
+## ![](https://github.com/jeanlescure/quick-wb/raw/master/misc/new.png) Interactive Multiple Server Instance Manager
+
+Running `quick-wb` in interactive mode allows you to start multiple WEBrick servers and manage them from a single console or terminal.
+
+To start Quick WEBrick in interactive mode:
+
+    $ quick-wb i
+    
+Once in interactive mode you'll see the following prompt:
+    
+    quick-wb> 
+    
+Now simply type `help` for available commands:
+
+    quick-wb> help
+
+    Welcome to the Interactive Server Manager
+    
+    Starting a server:
+    start [options]
+    ('start -h' for more information about available options)
+    
+    The following is a list of available commands:
+    
+     help
+     start
+     list
+     kill
+     killall
+     describe
+     clear
+     cls
+     version
+
 ## ![PHP](http://www.php.net/images/logo.php) now supported!
 
 Run the server with php command:
 
-    quick-wb php
+    quick-wb --php
     
 Override php installation directory:
 
-    quick-wb php --phpdir="c:\dev\php-5.4"
+    quick-wb --php --phpdir "c:\dev\php-5.4"
 
 ### Note: This feature has only been tested on windows platforms, so take into consideration the following:
 
@@ -56,9 +98,9 @@ Override php installation directory:
 
 To view quick-wb's help info about commands and arguments, run:
 
-On Linux: `$ ./quick-wb help`
+On Linux: `$ ./quick-wb -h`
 
-On Windows: `quick-wb help`
+On Windows: `quick-wb -h`
 
 * * *
 

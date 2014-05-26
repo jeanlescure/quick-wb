@@ -1,0 +1,24 @@
+require_relative '../lib/quick-wb'
+$verbose = false
+$logger = QuickWb::Logger.new
+$interactive = false
+$ciao_msg = "\n\e[32mThanks for using Quick WEBrick. Have a nice day!\e[0m"
+
+if not defined?(Ocra)
+  if (ARGV[0] == 'i' || ARGV[0] == 'interactive')
+    $interactive = true
+    ARGV.shift
+    QuickWb::Server.new().interactive
+  else
+    begin
+      qwb = QuickWb::Server.new().start(ARGV)
+      Signal.trap(2) {
+        qwb.shutdown
+        puts $ciao_msg
+      }
+      qwb.start
+    rescue Errno::EADDRINUSE => ex
+      puts "ERROR! Port already in use!"
+    end
+  end
+end
